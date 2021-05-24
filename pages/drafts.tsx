@@ -1,10 +1,9 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import Layout from "../components/Layout";
-import Post, { PostProps } from "../components/Post";
+import Gist, { GistProps } from "../components/Gist";
 import { useSession, getSession } from "next-auth/client";
-import prisma from '../lib/prisma'
-
+import prisma from "../lib/prisma";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
@@ -13,10 +12,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     return { props: { drafts: [] } };
   }
 
-  const drafts = await prisma.post.findMany({
+  const drafts = await prisma.gist.findMany({
     where: {
       author: { email: session.user.email },
-      published: false,
+      private: false,
     },
     include: {
       author: {
@@ -30,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 };
 
 type Props = {
-  drafts: PostProps[];
+  drafts: GistProps[];
 };
 
 const Drafts: React.FC<Props> = (props) => {
@@ -50,9 +49,9 @@ const Drafts: React.FC<Props> = (props) => {
       <div className="page">
         <h1>My Drafts</h1>
         <main>
-          {props.drafts.map((post) => (
-            <div key={post.id} className="post">
-              <Post post={post} />
+          {props.drafts.map((gist) => (
+            <div key={gist.id} className="post">
+              <Gist gist={gist} />
             </div>
           ))}
         </main>

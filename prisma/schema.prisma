@@ -7,11 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
+model Gist {
   id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
+  filename  String
+  code      String?
+  private   Boolean @default(false)
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  Int?
 }
@@ -24,7 +24,7 @@ model User {
   image         String?
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
-  posts         Post[]
+  gists         Gist[]
 
   @@map(name: "users")
 }
