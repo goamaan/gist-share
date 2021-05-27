@@ -1,15 +1,15 @@
-import { Provider } from "next-auth/client";
-import { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Provider } from 'next-auth/client';
+import { AppProps } from 'next/app';
+import { Chakra } from './Chakra';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <ChakraProvider>
-      <Provider session={pageProps.session}>
-        <Component {...pageProps} />
-      </Provider>
-    </ChakraProvider>
-  );
+    return (
+        <Chakra cookies={pageProps.cookies}>
+            <Provider session={pageProps.session}>
+                <Component {...pageProps} />
+            </Provider>
+        </Chakra>
+    );
 };
 
 export default App;
