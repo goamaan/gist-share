@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Gist {
-  id        Int     @id @default(autoincrement())
-  filename  String
-  code      String?
-  private   Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  Int?
+  id       Int     @id @default(autoincrement())
+  filename String
+  code     String?
+  private  Boolean @default(false)
+  author   User?   @relation(fields: [authorId], references: [id])
+  authorId Int?
 }
 
 model User {

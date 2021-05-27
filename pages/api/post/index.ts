@@ -9,13 +9,14 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { filename, code } = req.body;
+  const { filename, code, isPrivate } = req.body;
 
   const session = await getSession({ req });
   const result = await prisma.gist.create({
     data: {
       filename,
       code,
+      private: isPrivate ? isPrivate : false,
       author: { connect: { email: session?.user?.email } },
     },
   });
