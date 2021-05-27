@@ -5,6 +5,7 @@ import { signOut, useSession } from "next-auth/client";
 
 const Header: React.FC = () => {
   const router = useRouter();
+
   const isActive: (pathname: string) => boolean = (pathname) =>
     router.pathname === pathname;
 
