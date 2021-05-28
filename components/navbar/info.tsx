@@ -5,10 +5,14 @@ const Info = (props: StackProps) => {
     return (
         <Stack direction="row" alignItems="center" {...props}>
             <Flex direction="column" lineHeight="5">
-                <Text fontSize="lg" fontWeight="semibold" textStyle="default">
-                    Test App
+                <Text
+                    fontSize="lg"
+                    fontWeight="medium"
+                    textStyle="default"
+                    letterSpacing="widest"
+                >
+                    gistShare
                 </Text>
-                <Text fontSize="sm">gistShare</Text>
             </Flex>
         </Stack>
     );

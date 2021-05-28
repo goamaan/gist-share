@@ -2,7 +2,6 @@ import { Flex, Spacer, Stack, Text } from '@chakra-ui/layout';
 import React from 'react';
 import Actions from './actions';
 import Info from './info';
-import NavButton from './nav-button';
 
 const Navbar = () => {
     return (
@@ -19,9 +18,7 @@ const Navbar = () => {
                 alignItems="center"
                 spacing={[0, , 8]}
             >
-                <NavButton />
-                <Info display={['none', , 'flex']} />
-                <Spacer display={{ md: 'none' }} />
+                <Info display={['flex']} />
                 <Spacer />
                 <Actions />
             </Stack>
