@@ -1,6 +1,6 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import Layout from '../components/Layout';
+import Layout from '../components/index';
 import Gist, { GistProps } from '../components/Gist';
 import prisma from '../lib/prisma';
 
