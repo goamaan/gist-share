@@ -1,6 +1,6 @@
 import { Provider } from 'next-auth/client';
 import { AppProps } from 'next/app';
-import { Chakra } from './Chakra';
+import { Chakra } from '../Chakra';
 
 const App = ({ Component, pageProps }: AppProps) => {
     return (

@@ -4,8 +4,8 @@ import {
     localStorageManager,
 } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
-import { theme } from '../theme/index';
-import Fonts from '../theme/foundations/fonts';
+import { theme } from './theme/index';
+import Fonts from './theme/foundations/fonts';
 
 export function Chakra({ cookies, children }) {
     // b) Pass `colorModeManager` prop

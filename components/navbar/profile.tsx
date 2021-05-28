@@ -11,19 +11,15 @@ import React from 'react';
 
 export type IProfileProps = {
     image: string;
+    name: string;
 };
 
-const Profile: React.FC<IProfileProps> = ({ image }) => {
+const Profile: React.FC<IProfileProps> = ({ image, name }) => {
     return (
         <HStack alignItems="center">
             <Menu>
                 <MenuButton>
-                    <Avatar
-                        name="anubra266"
-                        src={image}
-                        size="sm"
-                        as="button"
-                    />
+                    <Avatar name={name} src={image} size="sm" as="button" />
                 </MenuButton>
                 <MenuList bg={useColorModeValue('bg.100', 'bg.800')}>
                     <MenuItem>Log out</MenuItem>
